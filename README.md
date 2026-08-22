@@ -22,7 +22,7 @@ abe pack <backup.tar> <password>
 go install github.com/garudaproject/abe@latest
 ```
 
-**download**
+### Download
 
 - <https://github.com/garudaproject/abe/releases>
 

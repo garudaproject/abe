@@ -3,10 +3,10 @@ LDFALGS = -ldflags="-s -w"
 all: build
 
 build:
-	go build $(LDFALGS) -o ./bin/abe .
+	go build $(LDFALGS) -o ./bin/abe ./...
 
 install:
-	CGO_ENABLED=0 go install $(LDFALGS) .
+	CGO_ENABLED=0 go install $(LDFALGS) ./...
 
 release:
 	goreleaser release --auto-snapshot --clean
