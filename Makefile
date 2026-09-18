@@ -1,12 +1,13 @@
-LDFALGS = -ldflags="-s -w"
+VERSION = $(shell git describe --tags --abbrev=0)
+LDFALGS = -ldflags="-s -w -X main.version=$(VERSION)"
 
 all: build
 
 build:
-	go build $(LDFALGS) -o ./bin/abe ./...
+	go build $(LDFALGS) -o ./bin/abe ./cmd/abe
 
 install:
-	CGO_ENABLED=0 go install $(LDFALGS) ./...
+	CGO_ENABLED=0 go install $(LDFALGS) ./cmd/abe
 
 release:
 	goreleaser release --auto-snapshot --clean

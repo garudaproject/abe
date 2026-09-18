@@ -8,10 +8,10 @@ before:
     - go mod tidy
 
 builds:
-  - main: ./...
+  - main: ./cmd/abe
     env:
       - CGO_ENABLED=0
-    ldflags: -s -w
+    ldflags: -s -w -X main.version={{ .Version }}
     goos:
       - linux
       - windows
